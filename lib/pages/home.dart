@@ -173,12 +173,10 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Row(
                           children: [
-                            IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  Icons.visibility,
-                                  color: CustomColors.yellow,
-                                )),
+                            const Icon(
+                              Icons.visibility,
+                              color: CustomColors.yellow,
+                            ),
                             Text(
                               "$currentMusicNo/$numberOfMusic",
                               style: TextStyle(

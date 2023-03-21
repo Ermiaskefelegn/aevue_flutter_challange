@@ -59,44 +59,58 @@ class _HomeScreenState extends State<HomeScreen> {
     const InboxPage(),
     const ProfilePage(),
   ];
+
+  List<String> titile = ["Home", "discover", "Watch", "Inbox", "Profile"];
   List<PersistentBottomNavBarItem> _navBarsItems() {
-    return [
-      PersistentBottomNavBarItem(
-          icon: const Icon(Icons.home),
-          title: "Home",
-          activeColorPrimary: CustomColors.yellow,
-          inactiveColorPrimary: CustomColors.thirdblack,
-          textStyle: const TextStyle(
-              fontWeight: FontWeight.w500, fontStyle: FontStyle.italic)),
-      PersistentBottomNavBarItem(
-          icon: const Icon(Icons.explore),
-          title: "Discover",
-          activeColorPrimary: CustomColors.yellow,
-          inactiveColorPrimary: CustomColors.thirdblack,
-          textStyle: const TextStyle(
-              fontWeight: FontWeight.w500, fontStyle: FontStyle.italic)),
-      PersistentBottomNavBarItem(
-          icon: const Icon(Icons.live_tv),
-          title: "Watch",
-          activeColorPrimary: CustomColors.yellow,
-          inactiveColorPrimary: CustomColors.thirdblack,
-          textStyle: const TextStyle(
-              fontWeight: FontWeight.w500, fontStyle: FontStyle.italic)),
-      PersistentBottomNavBarItem(
-          icon: const Icon(Icons.message_rounded),
-          title: "Inbox",
-          activeColorPrimary: CustomColors.yellow,
-          inactiveColorPrimary: CustomColors.thirdblack,
-          textStyle: const TextStyle(
-              fontWeight: FontWeight.w500, fontStyle: FontStyle.italic)),
-      PersistentBottomNavBarItem(
-          icon: const Icon(Icons.person),
-          title: "Profile",
-          activeColorPrimary: CustomColors.yellow,
-          inactiveColorPrimary: CustomColors.thirdblack,
-          textStyle: const TextStyle(
-              fontWeight: FontWeight.w500, fontStyle: FontStyle.italic)),
-    ];
+    return titile
+        .map(
+          (e) => PersistentBottomNavBarItem(
+              icon: const Icon(Icons.home),
+              title: e,
+              activeColorPrimary: CustomColors.yellow,
+              inactiveColorPrimary: CustomColors.thirdblack,
+              textStyle: const TextStyle(
+                  fontWeight: FontWeight.w500, fontStyle: FontStyle.italic)),
+        )
+        .toList();
+
+    // [
+    //   PersistentBottomNavBarItem(
+    //       icon: const Icon(Icons.home),
+    //       title: "Home",
+    //       activeColorPrimary: CustomColors.yellow,
+    //       inactiveColorPrimary: CustomColors.thirdblack,
+    //       textStyle: const TextStyle(
+    //           fontWeight: FontWeight.w500, fontStyle: FontStyle.italic)),
+    //   PersistentBottomNavBarItem(
+    //       icon: const Icon(Icons.explore),
+    //       title: "Discover",
+    //       activeColorPrimary: CustomColors.yellow,
+    //       inactiveColorPrimary: CustomColors.thirdblack,
+    //       textStyle: const TextStyle(
+    //           fontWeight: FontWeight.w500, fontStyle: FontStyle.italic)),
+    //   PersistentBottomNavBarItem(
+    //       icon: const Icon(Icons.live_tv),
+    //       title: "Watch",
+    //       activeColorPrimary: CustomColors.yellow,
+    //       inactiveColorPrimary: CustomColors.thirdblack,
+    //       textStyle: const TextStyle(
+    //           fontWeight: FontWeight.w500, fontStyle: FontStyle.italic)),
+    //   PersistentBottomNavBarItem(
+    //       icon: const Icon(Icons.message_rounded),
+    //       title: "Inbox",
+    //       activeColorPrimary: CustomColors.yellow,
+    //       inactiveColorPrimary: CustomColors.thirdblack,
+    //       textStyle: const TextStyle(
+    //           fontWeight: FontWeight.w500, fontStyle: FontStyle.italic)),
+    //   PersistentBottomNavBarItem(
+    //       icon: const Icon(Icons.person),
+    //       title: "Profile",
+    //       activeColorPrimary: CustomColors.yellow,
+    //       inactiveColorPrimary: CustomColors.thirdblack,
+    //       textStyle: const TextStyle(
+    //           fontWeight: FontWeight.w500, fontStyle: FontStyle.italic)),
+    // ];
   }
 
   @override
