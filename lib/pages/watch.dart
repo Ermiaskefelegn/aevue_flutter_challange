@@ -10,6 +10,6 @@ class WatchPage extends StatefulWidget {
 class _WatchPageState extends State<WatchPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(body: Container());
   }
 }

@@ -1,3 +1,4 @@
+import 'package:aevue_flutter_challange/models/nav_bar_item_model.dart';
 import 'package:aevue_flutter_challange/pages/discover.dart';
 import 'package:aevue_flutter_challange/pages/home.dart';
 import 'package:aevue_flutter_challange/pages/inbox.dart';
@@ -11,7 +12,7 @@ import 'package:aevue_flutter_challange/config_files/custom_colors.dart';
 void main() {
   runApp(Sizer(builder:
       (BuildContext context, Orientation orientation, DeviceType deviceType) {
-    return MyApp();
+    return const MyApp();
   }));
 }
 
@@ -46,83 +47,49 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
-    // BusCachingservices.getCompanyData();
-    // TripCachingservices.gettripData();
-
     super.initState();
   }
 
   final _buildScreens = [
-    const HomePage(),
+    HomePage(),
     const DiscoverPage(),
     const WatchPage(),
     const InboxPage(),
     const ProfilePage(),
   ];
 
-  List<String> titile = ["Home", "discover", "Watch", "Inbox", "Profile"];
+  List<NavBarItemModel> titile = [
+    NavBarItemModel(title: "Home", icon: Icons.home),
+    NavBarItemModel(title: "Discover", icon: Icons.explore),
+    NavBarItemModel(title: "Watch", icon: Icons.live_tv),
+    NavBarItemModel(title: "Inbox", icon: Icons.message_rounded),
+    NavBarItemModel(title: "Profile", icon: Icons.message_rounded),
+  ];
+
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return titile
         .map(
           (e) => PersistentBottomNavBarItem(
-              icon: const Icon(Icons.home),
-              title: e,
+              icon: Icon(e.icon),
+              title: e.title,
               activeColorPrimary: CustomColors.yellow,
               inactiveColorPrimary: CustomColors.thirdblack,
               textStyle: const TextStyle(
                   fontWeight: FontWeight.w500, fontStyle: FontStyle.italic)),
         )
         .toList();
-
-    // [
-    //   PersistentBottomNavBarItem(
-    //       icon: const Icon(Icons.home),
-    //       title: "Home",
-    //       activeColorPrimary: CustomColors.yellow,
-    //       inactiveColorPrimary: CustomColors.thirdblack,
-    //       textStyle: const TextStyle(
-    //           fontWeight: FontWeight.w500, fontStyle: FontStyle.italic)),
-    //   PersistentBottomNavBarItem(
-    //       icon: const Icon(Icons.explore),
-    //       title: "Discover",
-    //       activeColorPrimary: CustomColors.yellow,
-    //       inactiveColorPrimary: CustomColors.thirdblack,
-    //       textStyle: const TextStyle(
-    //           fontWeight: FontWeight.w500, fontStyle: FontStyle.italic)),
-    //   PersistentBottomNavBarItem(
-    //       icon: const Icon(Icons.live_tv),
-    //       title: "Watch",
-    //       activeColorPrimary: CustomColors.yellow,
-    //       inactiveColorPrimary: CustomColors.thirdblack,
-    //       textStyle: const TextStyle(
-    //           fontWeight: FontWeight.w500, fontStyle: FontStyle.italic)),
-    //   PersistentBottomNavBarItem(
-    //       icon: const Icon(Icons.message_rounded),
-    //       title: "Inbox",
-    //       activeColorPrimary: CustomColors.yellow,
-    //       inactiveColorPrimary: CustomColors.thirdblack,
-    //       textStyle: const TextStyle(
-    //           fontWeight: FontWeight.w500, fontStyle: FontStyle.italic)),
-    //   PersistentBottomNavBarItem(
-    //       icon: const Icon(Icons.person),
-    //       title: "Profile",
-    //       activeColorPrimary: CustomColors.yellow,
-    //       inactiveColorPrimary: CustomColors.thirdblack,
-    //       textStyle: const TextStyle(
-    //           fontWeight: FontWeight.w500, fontStyle: FontStyle.italic)),
-    // ];
   }
 
   @override
   Widget build(BuildContext context) {
-    PersistentTabController _controller =
+    PersistentTabController controller =
         PersistentTabController(initialIndex: widget.index);
     return SafeArea(
       child: Scaffold(
           backgroundColor: CustomColors.black,
           body: PersistentTabView(
             context,
-            controller: _controller,
+            controller: controller,
             screens: _buildScreens,
             items: _navBarsItems(),
             confineInSafeArea: true,
