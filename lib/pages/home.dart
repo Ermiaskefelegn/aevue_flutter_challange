@@ -39,7 +39,9 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const GradientText(),
+            const GradientText(
+              title: "Trending Playlists",
+            ),
             SizedBox(
               height: 2.w,
             ),

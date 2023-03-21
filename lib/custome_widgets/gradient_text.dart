@@ -5,8 +5,9 @@ import 'package:sizer/sizer.dart';
 class GradientText extends StatelessWidget {
   const GradientText({
     super.key,
+    required this.title,
   });
-
+  final String title;
   @override
   Widget build(BuildContext context) {
     return ShaderMask(
@@ -19,7 +20,7 @@ class GradientText extends StatelessWidget {
             .createShader(bounds);
       },
       child: Text(
-        "Trending Playlists",
+        title,
         style: TextStyle(
           fontFamily: "Open Sans",
           fontSize: 25.sp,
